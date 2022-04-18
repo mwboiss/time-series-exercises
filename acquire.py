@@ -1,6 +1,7 @@
 import pandas as pd
 import requests
 import os
+from vega_datasets import data
 
 def get_items(use_cache=True):
     
@@ -70,7 +71,7 @@ def combine():
     
     sales = get_sales()
     items = get_items()
-    stores = get_items()
+    stores = get_stores()
     
     combined = sales.merge(items,left_on='item',right_on='item_id')
     combined = combined.merge(stores,left_on='store',right_on='store_id')
